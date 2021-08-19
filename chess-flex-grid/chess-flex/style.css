@@ -1,0 +1,66 @@
+body {
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxyyQSpbIFx8gVIrrS7jKLw0JO5wJMkJiCyg&usqp=CAU);
+    background-repeat: initial;
+    background-size: cover;
+  }
+  
+  *{
+	box-sizing: border-box;
+  }
+
+h1{
+	font-size: 1.5rem;
+	text-shadow: 0 2px 3px rgba(0,0,0,.75);
+}
+
+.board{
+
+	
+	margin: auto;
+	
+	display: flex;
+	flex-wrap: wrap;
+	border: 4vw solid transparent;
+	 
+	max-width: 700px;
+	max-height: 700px;
+	width: 100%;
+	height: 100%;
+	box-shadow: 0 10px 10px -5px rgba(0,0,0,.75);
+	font-size: 0;
+	 
+}
+
+.box{
+	width: 12.5%;
+	height: 12.5%;
+	font-size: 8vw;
+	line-height: 12vw;
+}
+
+.box:nth-child(n+1):nth-child(-n+16){
+	color: rgb(218, 218, 218);
+}
+
+.board .box:nth-child(n+1):nth-child(-n+8):nth-child(even),
+.board .box:nth-child(n+17):nth-child(-n+25):nth-child(even),
+.board .box:nth-child(n+33):nth-child(-n+40):nth-child(even),
+.board .box:nth-child(n+49):nth-child(-n+56):nth-child(even),
+.board .box:nth-child(n+9):nth-child(-n+16):nth-child(odd),
+.board .box:nth-child(n+25):nth-child(-n+32):nth-child(odd),
+.board .box:nth-child(n+41):nth-child(-n+48):nth-child(odd),
+.board .box:nth-child(n+57):nth-child(-n+64):nth-child(odd){
+	background-color: rgba(135,50,0,.5);
+}
+
+@media screen and (min-width: 480px){
+	.board{
+		border: 18px solid transparent;
+		
+		box-shadow: 0 15px 15px -5px rgba(0,0,0,.75);
+	}
+	.box{
+		font-size: 2.5rem;
+		line-height: 56px;
+}
+}
