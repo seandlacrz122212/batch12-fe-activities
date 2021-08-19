@@ -1,0 +1,308 @@
+html {
+    background-color: #CC9B6D;
+    scroll-behavior: smooth;
+    margin: 0px;
+    background-image: url(https://cdn1.vectorstock.com/i/1000x1000/26/95/melted-chocolate-dripping-set-on-white-background-vector-2542695.jpg);
+    background-size: 1700px;
+    background-repeat: no-repeat ;
+}
+
+
+
+
+
+#image {
+    display: block;
+    margin-left: auto;
+    margin-bottom: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    width: 65%;
+    image-resolution: 300dpi;
+    border-radius: 50%;
+}
+
+nav > h6 > a {
+    color: #987A77;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 300;
+    width: 100%;
+
+  }
+  nav > h6 > a:hover {
+    text-decoration: underline;
+  }
+
+
+
+  
+  body {
+    justify-content: center;
+    
+    display: block;
+    border: 10px solid blanchedalmond;
+    padding: 25px;
+    width: 55%; 
+    margin : auto;
+    margin-top: 5px;
+    margin-bottom: 5px;;
+    background-color: #FFEBC9;
+    
+}
+    
+
+.primary-info {
+    padding: 25px;
+    width: 68%; 
+    margin-top: 0px;
+}
+
+
+
+  #title {
+    font-size: 60;
+    font-weight: 120;
+    font-family: "Showcard Gothic";
+    color: #B05B3B;
+    text-align: center;
+
+}
+
+#description {
+    font-size: larger;
+    text-align: center;
+    font-family: "Calibri";
+}
+
+.heading {
+    font-size: smaller;
+    text-align: center;
+}
+
+.primary-info {
+    font-size: larger;
+    font-family: "Arial Black";
+    font-style: normal;
+    word-spacing: 3px;
+    color:#D79771;
+    text-align: justify;
+    border:0px;
+    padding:0px;
+    top: 100px;
+    background: none;
+    bottom: 0px;
+    margin: 0%;
+   
+}
+
+
+.secondary-info{
+  position: absolute;
+  left: 720px;
+  right: 300px;
+  top: 305px;
+  display: inline-block;
+ 
+
+}
+.secondary-info > section > h6 {
+  font-size: x-large;
+  font-family: "Arial Black";
+  font-style: normal;
+  color:#D79771;
+  display: inline-block;
+}
+
+
+.secondary-info {
+  font-size: medium;
+  font-style: normal;
+  font-family: "Calibri";
+  color: black;
+   
+}
+
+.region {
+    position: absolute;
+    left: 880px;
+    top: 305px;
+    display: inline-block;
+   
+  
+  }
+
+  .region > h6 {
+    font-size: x-large;
+    font-family: "Arial Black";
+    font-style: normal;
+    color:#D79771;
+    display: inline-block;
+  }
+  
+  
+  .region-item >select {
+    width: 100px;
+    outline: none;
+    padding: .5rem;
+    border: 0.5px solid #646464;
+    background-color: transparent;
+    font-family: "Lato", sans-serif;
+    font-size: 1.2rem;
+     
+  }
+  
+  .survey {
+    text-align: left;
+    background-color: #CC9B6D;
+  }
+
+  .survey > h6 {
+    font-size: larger;
+    margin: 0px;
+    padding: 10px;
+    margin-top: 50px;
+    border: 0px;
+    
+  }
+
+  .radio-item1 {
+    font-size: larger;
+    font-style: normal;
+    border: 5x solid #D79771;
+    background-color: #FFEBC9;
+    margin: 0px;
+    padding:30px;
+    justify-content: space-around;
+    word-spacing: 50px;
+    text-align: justify;
+    
+  }
+
+  .surveytwo > h6 {
+    font-size: larger;
+    margin: 0px;
+    padding: 10px;
+    margin-top: 5px;
+    border: 0px;
+    
+  }
+
+  .checkbox-item {
+    font-size: large;
+    font-style: normal;
+    border: 5x solid #D79771;
+    background-color: #FFEBC9;
+    margin: 0px;
+    padding:30px;
+    justify-content: space-around;
+    word-spacing: 20px;
+    text-align: justify;
+    
+  }
+
+  .surveythree > h6 {
+    font-size: larger;
+    margin: 0px;
+    padding: 10px;
+    margin-top: 5px;
+    border: 0px;
+    
+  }
+
+  .radio-item2 {
+    font-size: larger;
+    font-style: normal;
+    border: 5x solid #D79771;
+    background-color: #FFEBC9;
+    margin: 0px;
+    padding:30px;
+    justify-content: space-around;
+    word-spacing: 50px;
+    text-align: justify;
+    
+  }
+
+  .surveyfour > h6 {
+    font-size: larger;
+    margin: 0px;
+    padding: 10px;
+    margin-top: 5px;
+    border: 0px;
+    
+  }
+
+  .radio-item3 {
+    font-size: larger;
+    font-style: normal;
+    border: 5x solid #D79771;
+    background-color: #FFEBC9;
+    margin: 0px;
+    padding:30px;
+    justify-content: space-around;
+    word-spacing: 50px;
+    text-align: justify;
+  }
+
+  .surveyfive > h6 {
+    font-size: larger;
+    margin: 0px;
+    padding: 10px;
+    margin-top: 5px;
+    border: 0px;
+  }
+
+  .radio-item4 {
+    font-size: larger;
+    font-style: normal;
+    border: 5x solid #D79771;
+    background-color: #FFEBC9;
+    margin: 0px;
+    padding:30px;
+    justify-content: space-around;
+    word-spacing: 50px;
+    text-align: justify;
+  }
+
+  .feedback-form {
+    text-align: center;
+    border: 0.5px solid #646464;
+    font-size: xx-large;
+    font-family: "Arial Black";
+    font-style: normal;
+    word-spacing: 3px;
+    color:#D79771;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-image: url(https://static.vecteezy.com/system/resources/previews/000/830/287/non_2x/dripping-melted-chocolates-isolated-vector.jpg);
+    background-repeat: no-repeat;
+    background-size: 1600 px;
+    
+  }
+
+  .feedback-form >h6 {
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 25px;
+   
+  }
+
+  .feedback-form > textarea {
+
+    margin-top: 0px;
+    margin-bottom: 20px;
+    border:0px;
+    width: 50%;
+    height: 20%;
+  }
+
+  #submit {
+    width: 100%;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  

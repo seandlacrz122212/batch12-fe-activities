@@ -1,0 +1,189 @@
+<html>
+    <head>
+    <title>Survey Form</title>
+    <link rel="stylesheet" href=".\style.css"/>
+    <img scr=" batch12-fe-activities\survey-form\assets\Chocolate.jpg">
+</head>
+
+<body>
+    <main class="container-main">
+      <!-----  <div class="container-img">
+
+        <img src="C:\Users\sean andrea\AvionSchool\batch12-fe-activities\survey-form\assets\1230679.gif" alt="" id="image">
+        <nav>
+            <h6><a href="#container-survey">Take The Chocoalate Bar Survey</a></h6>
+            
+        </nav>
+     </div> -->
+
+<div class="box-survey">
+     <div class="container-survey">
+        <h1 id="title">The Chocolate Bar Survey</h1>
+        <p id="description">Hey! Thanks for taking the time to answer this sweet survey. This should take less than five minutes of your time.</i></p>
+
+   <form>
+
+        <p class="heading"><i>- - - - - All information provided will be kept confidential. - - - - - </p>
+    <section class="personal-info">
+        <section class="primary-info">
+            
+                <label for="name" id="name-label">NAME:</label>
+                <input type="text" name="name" id="name-label" placeholder="e.g. Sean Dela Cruz" required size="40"><br>
+
+                <label for="email" id="email-label">EMAIL:</label>
+                <input type="text" name="email" id="email-label" placeholder="e.g. seandcruz@choco.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required size="39"><br>
+               
+               
+                <label for="contact" id="contact-label">CONTACT NUMBER:</label>
+                <input type="text" name="contact" id="contact-label" placeholder="e.g. 09218618166" pattern="[0]+\d{10}$" required maxlength="11"><br>
+
+                <label for="age" id="age-label">AGE:</label>
+                <input type="number" name="age" id="age" placeholder="e.g. 60" pattern="[0-9]{3}" min="1" max="105" required>
+            
+           </section>
+      
+        
+   
+        <div class="secondary-info">
+                <section>
+                  <h6>SEX</h6>
+                  <div class="flex-row-item">
+                    <input type="radio" name="sex" value="male" id="sex-male" required>
+                    <label for="sex-male" >MALE</label>
+                    <input type="radio" name="sex" value="female" id="sex-female">
+                    <label for="sex-female" >FEMALE</label>
+                  </div>
+                </div>
+                </section>
+               
+
+       <section class="region">
+            <h6>REGION:</h6>
+            <div class="region-item">
+              <select name="country" id="dropdown" placeholder="Select Country" required>
+              <option value="" disabled="disabled" selected >Select Region</option>
+              <option value="NCR">NCR:National Capital Region</option>
+              <option value="CAR">CAR: Cordillera Administrative Region</option>
+              <option value="R1">Region I</option>
+              <option value="R2">Region II</option>
+              <option value="R3">Region III</option>
+              <option value="R4A">Region IV-A</option>
+              <option value="R4B">MIMAROPA</option>
+              <option value="R5">Region V</option>
+              <option value="R6">Region VI</option>
+              <option value="R7">Region VII</option>
+              <option value="R8">Region VIII</option>
+              <option value="R9">Region IX</option>
+              <option value="R10">Region X</option>
+              <option value="R11">Region XI</option>
+              <option value="R12">Region XII</option>
+              <option value="R13">Region XIII</option>
+              <option value="BARMM">BARMM:Bangsamoro</option>
+                
+            </select>
+          </div>
+          </section>
+        </section>
+      
+          <div class="survey">
+                <h6>What type of chocolate do you prefer?</h6>
+                <div class="radio-item1">
+                      <input type="radio" name="type" value="White" id="type-label">
+                      <label for="White">White</label>
+
+                      <input type="radio" name="type" value="Milk" id="type-label">
+                      <label for="Milk" >Milk</label>
+
+                      <input type="radio" name="type" value="Dark" id="type-label">
+                      <label for="Dark" >Dark</label>
+                    </div>
+                              
+             
+
+            <div class="surveytwo">
+                <h6>What is your favorite addition to a chocolate bar?</h6>
+                    <div class="checkbox-item">
+                        
+                      <input type="checkbox" name="addition" value="Plain" id="addition-label">
+                      <label for="Nothing" >Nothing (Plain Chocolate)</label>
+                    
+                 
+                      <input type="checkbox" name="addition" value="newspaper" id="addition-label">
+                      <label for="Nuts">Nuts</label>
+                    
+                  
+                      <input type="checkbox" name="addition" value="Fruit" id="addition-label">
+                      <label for="Fruit">Fruit</label>
+
+                      <input type="checkbox" name="addition" value="Other" id="addition-label">
+                      <label for="Other">Other</label>
+
+                    </div>
+
+
+              <div class="surveythree">
+                <h6>How often do you buy chocolates?</h6>
+                    <div class="radio-item2">
+                          
+                        <input type="radio" name="frequency" value="Weekly" id="freq-label">
+                        <label for="Weekly" >Weekly</label>
+  
+                        <input type="radio" name="frequency" value="Monthly" id="freq-label">
+                        <label for="Monthly">Monthly</label>
+
+                        <input type="radio" name="frequency" value="Yearly" id="freq-label">
+                        <label for="Yearly">Yearly</label>
+
+                    </div>
+
+              <div class="surveyfour">
+                <h6>What packaging do you prefer?</h6>
+                    <div class="radio-item3">
+                          
+                        <input type="radio" name="pack" value="Plastic" id="pack-label">
+                        <label for="Weekly">Plastic</label>
+  
+                        <input type="radio" name="pack" value="Aluminium" id="pack-label">
+                        <label for="Aluminium">Cardboard with Aluminium</label>
+
+                    </div>
+
+              <div class="surveyfive"></div>
+                <h6>Does sugar content concern you?</h6>
+                    <div class="radio-item4">
+                          
+                        <input type="radio" name="content" value="Yes" id="content-label">
+                        <label for="Yes">Yes</label>
+  
+                        <input type="radio" name="content" value="No" id="content-label">
+                        <label for="No">No</label>
+                        
+                    </div>
+                  </div>
+
+        </section>
+    </section>
+              </div>
+              </div>
+              </div>
+
+        <div class="feedback-form">
+            <h6>YOUR TOP 3 CHOCOLATE BARS</h6>
+
+            <textarea name="feedback" id="feedback" cols="30" rows="3"></textarea><br>
+
+          </div>
+
+          <div id="submit">
+            <div class="effects">
+              <input type="submit" name="button" value="Submit" id="submit">
+        </div>
+            </div> 
+    </div>
+  
+
+        </form>
+
+</body>
+
+</html>
