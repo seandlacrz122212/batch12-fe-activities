@@ -362,6 +362,7 @@ html {
 }
 
 .close,
+.restart
 #previous,
 .reset,
 #next{
@@ -372,6 +373,7 @@ html {
     margin-right: 3vh;
     border-radius: 30px;
     color: rgb(131, 59, 0);
+    
 
 }
 #next.hide,
@@ -389,4 +391,12 @@ html {
  .restart {
      border:rgb(119, 81, 0);
      background-color: #ffffff00;
+     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.5rem;
+    background-color: #ffffff;
+    margin-left: 3vh;
+    margin-right: 3vh;
+    border-radius: 30px;
+    color: rgb(131, 59, 0);
+    margin-bottom: 30px;
  }
