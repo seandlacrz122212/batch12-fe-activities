@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="index.js"></script>    
+    <link rel="stylesheet" href="style.css">
+    <title>Tic-Tac-Toe</title>
+</head>
+
+<body>
+    <!--Background-->
+    <div class="bg"></div>
+    <div class="bg bg2"></div>
+    <div class="bg bg3"></div>
+    <!--StartPrompt-->
+    <div class="choosePlayer">
+        <h1>WHO WILL GO FIRST?</h1>
+        <div class="choose-player">
+            <div class="choose" id="playerX">PLAYER X</div>
+            <div class="choose" id="playerO">PLAYER O</div>
+        </div>
+    </div>
+    <!--MainGame-->
+    <h1 class="header">TIC-TAC-TOE</h1>
+
+    <div class="show-score">
+        <h3 class="score">X = <span id="xscore"></span></h3>
+        <h3 class="score">O = <span id="oscore"></span></h3>
+    </div>
+    <!--Tiles-->
+    <div class="tile-container">
+        <div class="tile" id="0"></div>
+        <div class="tile" id="1"></div>
+        <div class="tile" id="2"></div>
+        <div class="tile" id="3"></div>
+        <div class="tile" id="4"></div>
+        <div class="tile" id="5"></div>
+        <div class="tile" id="6"></div>
+        <div class="tile" id="7"></div>
+        <div class="tile" id="8"></div>
+    </div>
+    <!--Buttons-->
+    <div class="mainButtons hidden">
+        <button id="previous" class="">Previous</button>
+        <button class="reset" onClick="window.location.reload();">Start Again</button>
+        <button id="next" class="">Next</button>
+    </div>
+    <!--ButtonsAfterWinning-->
+    <div class="win-prompt">
+        <button class="restart"></button>
+        <div class="win-text"></div>
+             
+            <button class="close">Close</button>
+        <div class="buttons"> 
+            
+        </div>
+    </div>
+</body>
+</html>
