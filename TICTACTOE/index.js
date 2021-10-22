@@ -4,10 +4,6 @@ const playerX = document.getElementById('playerX')
 const playerO = document.getElementById('playerO')
 let tileCells = document.querySelectorAll('.tile')
 
-//let board = ['', '', '', '', '', '', '', '', '',];
-//let currentPlayer = 'X';
-//let isGameActive = true;
-
 const cells = Array.from(tileCells)
 const board = document.querySelector('.tile-container')
 const winningMessage = document.querySelector('.win-text')
@@ -167,15 +163,6 @@ function loadTiles(index) {
         }   
     }   
 }
-//const userAction = (tile, index) => {
-  //  if(isValidAction(tile) && isGameActive) {
-    //    tile.innerText = currentPlayer;
-      //  tile.classList.add(`player${currentPlayer}`);
-        //updateBoard(index);
-        //handleResultValidation();
-        //changePlayer();
-  //  }
-//}
 
 //update the score
 function endGame (draw){
