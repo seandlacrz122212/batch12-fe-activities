@@ -1,0 +1,181 @@
+* {
+  margin: 0;
+  padding: 0;
+  right:0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+.pg1 {
+  background-image: linear-gradient(
+      to left,
+      rgba(243, 243, 243, 0.3),
+      rgba(66, 66, 66, 0.3)
+    ),
+    url(http://kerygmaconference.com/2018/assets/images/s-bo-sanchez.jpg);
+  height: 700px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center center;
+  width: 100%;
+}
+
+#top {
+  width: 58%;
+}
+#Title {
+  color: rgb(255, 231, 231);
+  font-family: "WindSong", cursive;
+  font-size: 65px;
+  text-align: left;
+  margin-left: 30px;
+  padding-top: 85px;
+  padding-bottom: 30px;
+}
+#tribute-info {
+  color: #6f737a;
+  font-family: "STIX Two Text", serif;
+  font-size: 20px;
+  text-align: right;
+  line-height: 150%;
+  padding-left: 30px;
+  padding-bottom: 25px;
+}
+h4 {
+  text-decoration: italic;
+}
+nav {
+  position: absolute;
+  top: var(--nav-spacing);
+  left: var(--nav-spacing);
+  background-color: transparent;
+  overflow: hidden;
+  margin-left:25px
+}
+#tribute-link {
+  float: left;
+  display: block;
+  color: #ae793e;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  margin-left:15px;
+  margin-right: 15px;
+}
+#tribute-link:hover {
+  color: ivory;
+  background-color: rgb(174, 121, 62, 0.5);
+}
+
+.quote {
+  color: #ae793e;
+  font-family: "MonteCarlo", cursive;
+  text-align: right;
+  font-size: 25px;
+  word-spacing: 5px;
+}
+.img {
+  margin-left: 10%;
+  margin-right: auto;
+}
+
+.content {
+  color: #292a39;
+  font-family: 'Gowun Dodum', sans-serif;
+  font-size: 20px;
+  text-align: center;
+  line-height: 150%;
+  width: 90%;
+  margin-left: 5%;
+  margin-bottom: 25px;
+}
+
+.article-header {
+  font-family: 'Hahmlet', serif;
+  font-weight: 600;
+  font-size: 50px;
+  letter-spacing: 15px;
+  white-space: nowrap;
+  color: #444;
+  text-align: center;
+  border-top: solid #c06014;
+  border-bottom: solid #c06014;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  padding: 0.25em 1em 0.2em 1em;
+  clip-path: polygon(0% 0%, 100% 0%, 75% 100%, 0% 100%);
+}
+.article-header:hover {
+  color: ivory;
+  background-color: rgb(174, 121, 62, 0.5);
+}
+
+h2 {
+  display: block;
+  color: #242424;
+  font-family: "STIX Two Text", serif;
+  text-align: center;
+  margin-bottom: 25px;
+}
+#img-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 25px;
+}
+figcaption {
+  display: block;
+  color: #6f737a;
+  font-family: "STIX Two Text", serif;
+}
+
+#decor {
+  background-image: url(https://portraitsinfaith.org/wp-content/uploads/2013/05/370-Bo-Sanchez-scaled.jpg);
+  height: 400px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center center;
+  width: 100%;
+}
+.stats-container{
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: 5%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 85%;
+  font-family: 'Gowun Dodum', sans-serif;
+}
+.num{
+  font-weight: 30px;
+  font-size: 60px;
+  text-align:center;
+  color: #292a39;
+}
+
+.info{
+  font-weight: 30px;
+  font-size: 60px;
+  text-align:center;
+  color: #292a39;
+}
+
+.gallery-container {
+  margin-left: 5%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 85%;
+}
+.gallery-container > img {
+  width: 300px;
+  margin: 10px 0;
+  height: 250px;
+}

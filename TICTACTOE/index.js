@@ -15,7 +15,7 @@ const currentPlayerO = document.querySelector('.o')
 const undoBtn = document.getElementById('previous')
 const redoBtn = document.getElementById('next')
 const mainButtons = document.querySelector('.mainButtons')
-const closeBtn = document.querySelector('.close')
+const closeBtn = document.querySelector('.close') 
 const restart = document.querySelector('.restart')
 const x_score = document.getElementById('xscore')
 const o_score = document.getElementById('oscore')
@@ -32,15 +32,16 @@ const winningConditions = [
     [0, 4, 8],
     [2, 4, 6]
 ]
+
 let Oscore = 0
 let Xscore = 0
 let oTurn = null
 let placement = null
 let moves = []
 
-
 const Xclass = "x"
 const Oclass = "o"
+
 //start choosing player 
 choose.forEach(chooseNow => {
     chooseNow.addEventListener('click', () => {
@@ -55,15 +56,9 @@ choose.forEach(chooseNow => {
     })
 })
 
-
-
-
-
 isGameActive()
 
-restart.addEventListener('click', isGameActive)
-
-
+closeBtn.addEventListener('click', isGameActive)
 
 //restart 
 function isGameActive() {
@@ -121,7 +116,6 @@ function storeMove(tileCells){
     placement = moves.length - 1
 }
 
-
 function undoMove() {
     redoBtn.disabled = false
     if (placement > 0){
@@ -146,7 +140,7 @@ function redoMove (){
 }
 
 redoBtn.addEventListener('click', redoMove)
-//getthe value
+//get the value
 function loadTiles(index) {
     board.innerHTML = ''
     for (let i = 0; i < moves[index].length; i++) {
@@ -187,6 +181,7 @@ function endGame (draw){
         cell.removeEventListener('click', cellClick)
     })
 }
+
 function putMark(cell,currentClass){
     cell.classList.add(currentClass)
 }
@@ -194,6 +189,7 @@ function putMark(cell,currentClass){
 function changeTurn(){
     oTurn = !oTurn
 }
+
 function setHover(){
     board.classList.remove(Xclass)
     board.classList.remove(Oclass)
@@ -203,6 +199,7 @@ function setHover(){
         board.classList.add(Xclass)
     }
 }
+
 function checkWin (currentClass){
     storeMove(cells)
     return winningConditions.some(combo => {
@@ -217,6 +214,7 @@ function isDraw(){
         return cell.classList.contains(Xclass) || cell.classList.contains(Oclass)
     })
 }
+
 closeBtn.addEventListener('click', closing = () => {
     winningMessageContainer.style.display  = 'none'
     mainButtons.classList.remove('hidden')
