@@ -1,223 +1,219 @@
-const choosePlayerPrompt = document.querySelector('.choosePlayer')
-const choose = document.querySelectorAll('.choose')
-const playerX = document.getElementById('playerX')
-const playerO = document.getElementById('playerO')
-let tileCells = document.querySelectorAll('.tile')
+const selectPlayerX = document.querySelector("#playerX");
+const selectPlayerO = document.querySelector("#playerO");
+const selectFirstPlayer = document.querySelector(".selectFirstPlayer");
+const board = document.querySelector(".board");
+const navigation = document.querySelector(".navigation");
+const reset = document.querySelector("#restartButton");
+const previousMove = document.querySelector("#previousMove");
+const nextMove = document.querySelector("#nextMove");
+const reset2 = document.querySelector("#restart2");
+const checkMoves = document.querySelector("#checkMoves");
+const winningMessage = document.querySelector(".winning-message");
+const winInnerText = document.querySelector("[data-winning-message-text]");
+const xScore = document.querySelector("#xScore");
+const oScore = document.querySelector("#oScore");
+const cellElements = document.querySelectorAll(".cell");
+const xClass = "x";
+const oClass = "O";
+const winningCombinations = [
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+  [0, 4, 8],
+  [2, 4, 6],
+];
 
-const cells = Array.from(tileCells)
-const board = document.querySelector('.tile-container')
-const winningMessage = document.querySelector('.win-text')
-const winningMessageContainer = document.querySelector('.win-prompt')
-const currentPlayerX = document.querySelector('.x')
-const currentPlayerO = document.querySelector('.o')
- 
+let scoreX = 0;
+let scoreO = 0;
+let move = "";
+let currentClass = "";
+let history = [];
 
-const undoBtn = document.getElementById('previous')
-const redoBtn = document.getElementById('next')
-const mainButtons = document.querySelector('.mainButtons')
-const closeBtn = document.querySelector('.close')
-const restart = document.querySelector('.restart')
-const x_score = document.getElementById('xscore')
-const o_score = document.getElementById('oscore')
+selectFirstPlayer.classList.add("show");
 
-//const board = ['', '', '', '', '', '', '', '', '',];
+/* --SELECT WHO'S TURN FIRST
+    BOARD CLASS ADD x or o */
+selectPlayerX.addEventListener("click", () => {
+  currentClass = xClass;
+  board.classList.add(currentClass);
+  selectFirstPlayer.classList.remove("show");
+});
+selectPlayerO.addEventListener("click", () => {
+  currentClass = oClass;
+  board.classList.add(currentClass);
+  selectFirstPlayer.classList.remove("show");
+});
 
-const winningConditions = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6]
-]
-let Oscore = 0
-let Xscore = 0
-let oTurn = null
-let placement = null
-let moves = []
+/* --PLAYER ACTION ON CLICK-- */
+const handleClick = (e) => {
+  const cell = e.target;
+  placeMark(cell, currentClass);
+  if (checkwin(currentClass)) {
+    winInnerText.innerHTML = `PLAYER ${currentClass} WON!`;
+    winningMessage.classList.add("show");
+    updatedBoardStatus();
+    updateMoves();
+  } else if (isDraw()) {
+    winInnerText.innerHTML = `IT'S A TIE!`;
+    winningMessage.classList.add("show");
+  } else {
+    updatedBoardStatus();
+    updateMoves();
+    swapTurns();
+  }
+};
 
+/* --PLACE PLAYER MARK ON CELL-- */
+const placeMark = (cell, currentClass) => {
+  cell.classList.add(currentClass);
+};
 
-const Xclass = "x"
-const Oclass = "o"
-//start choosing player 
-choose.forEach(chooseNow => {
-    chooseNow.addEventListener('click', () => {
-        if (chooseNow.id === 'playerX'){
-            oTurn = false;
-        } else {
-            oTurn = true
-            board.classList.add(Oclass)
-        }
-        choosePlayerPrompt.style.display  = 'none'
-        mainButtons.classList.add('hidden')
-    })
-})
+/*--SWAP TURNS, CHANGES BOARD CLASS-- */
+const swapTurns = () => {
+  if (currentClass === "x") {
+    board.classList.remove("x");
+    board.classList.add("O");
+    currentClass = "O";
+  } else {
+    board.classList.remove("O");
+    board.classList.add("x");
+    currentClass = "x";
+  }
+};
 
-
-
-
-
-isGameActive()
-
-restart.addEventListener('click', isGameActive)
-
-
-
-//restart 
-function isGameActive() {
-    oTurn = false
-    tileCells.forEach(cell => {
-        cell.classList.remove(Xclass)
-        cell.classList.remove(Oclass)
-        cell.addEventListener('click', cellClick, {once: true})
-    })
-    setHover()
-    let moves = []
-    mainButtons.classList.add('hidden')
-    winningMessageContainer.classList.remove('show') 
+/* --ADD EVENTLISTENERS ON EVERY CELLS-- */
+for (cell of cellElements) {
+  cell.addEventListener("click", handleClick, { once: true });
 }
 
-// event listener for all tiles
-function cellClick (e){
-    const cell = e.target
-    const currentClass = oTurn ? Oclass : Xclass
-    putMark(cell, currentClass)
-    if (checkWin(currentClass)){
-        endGame(false)
-    } else if (isDraw()){
-        endGame(true)
+/* --UPDATE BOARDSTATUS-- */
+const updatedBoardStatus = () => {
+  let row1 = [];
+  let row2 = [];
+  let row3 = [];
+  let mark = "";
+
+  for (let i = 0; i < cellElements.length; i++) {
+    if (cellElements[i].classList.contains("x")) {
+      mark = "x";
+    } else if (cellElements[i].classList.contains("O")) {
+      mark = "o";
     } else {
-    changeTurn()
-    setHover()
+      mark = "";
     }
-}
 
-//save movement so that prev and next will work
-function storeMove(tileCells){
-    let arr1 = []
-    let arr2 = []
-    let arr3 = []
-    let move = null
-
-    tileCells.forEach((value, index) =>  {
-        if (value.classList.contains(Xclass)) {
-            move = 'x'
-        } else if ( value.classList.contains(Oclass)){
-            move = 'o'
-        } else {
-            move = ''
-        } 
-        if (index <= 2) {
-            arr1.push(move)
-        } else if (index >= 3 && index < 6){
-            arr2.push(move)
-        } else{
-            arr3.push(move)
-        }
-    })
-    moves.push([arr1, arr2, arr3])
-    placement = moves.length - 1
-}
-
-
-function undoMove() {
-    redoBtn.disabled = false
-    if (placement > 0){
-        placement -= 1
-        loadTiles (placement)
-    }
-    if (placement === 0) {
-        undoBtn.disabled = true
-    }
-}
-
-undoBtn.addEventListener('click', undoMove)
-
-function redoMove (){
-    undoBtn.disabled = false
-    if (placement >= 0 && placement < moves.length - 1){
-        placement +=1 
-        loadTiles (placement)
-    }if (placement === moves.length - 1){
-        redoBtn.disabled = true
-    }
-}
-
-redoBtn.addEventListener('click', redoMove)
-//getthe value
-function loadTiles(index) {
-    board.innerHTML = ''
-    for (let i = 0; i < moves[index].length; i++) {
-        for (let j = 0; j < moves[index][i].length; j++){
-            let div = document.createElement('div')
-                if (moves[index][i][j] == 'x'){
-                    div.classList.add('x')
-                } else  if (moves[index][i][j] == 'o'){
-                    div.classList.add('o')
-                } else {
-                }
-            div.classList.add('tile')       
-            board.appendChild(div)
-        }   
-    }   
-}
-
-//update the score
-function endGame (draw){
-    if (draw){
-        winningMessage.innerText = `It's a Tie!`
-        console.log(draw)
-    }else {
-        if (oTurn){
-            Oscore += 1
-            o_score.innerHTML = Oscore
-        } else {
-            Xscore += 1
-            x_score.innerHTML = Xscore
-        }
-        winningMessage.innerText = `Player ${oTurn ? "O" : "X"} Won!`
-    }
-    winningMessageContainer.classList.add('show')
-    mainButtons.classList.add('hidden')
-    cells.forEach((cell) =>{
-        board.classList.remove('x')
-        board.classList.remove('o')
-        cell.removeEventListener('click', cellClick)
-    })
-}
-function putMark(cell,currentClass){
-    cell.classList.add(currentClass)
-}
-
-function changeTurn(){
-    oTurn = !oTurn
-}
-function setHover(){
-    board.classList.remove(Xclass)
-    board.classList.remove(Oclass)
-    if (oTurn){
-        board.classList.add(Oclass)
+    if (i <= 2) {
+      row1.push(mark);
+    } else if (i > 2 && i < 6) {
+      row2.push(mark);
     } else {
-        board.classList.add(Xclass)
+      row3.push(mark);
     }
-}
-function checkWin (currentClass){
-    storeMove(cells)
-    return winningConditions.some(combo => {
-        return combo.every(index => {
-            return tileCells[index].classList.contains(currentClass)
-        })
-    }) 
-} 
-//draw function
-function isDraw(){
-    return [...tileCells].every(cell => {
-        return cell.classList.contains(Xclass) || cell.classList.contains(Oclass)
-    })
-}
-closeBtn.addEventListener('click', closing = () => {
-    winningMessageContainer.style.display  = 'none'
-    mainButtons.classList.remove('hidden')
-})
+  }
+
+  history.push([row1, row2, row3]);
+  console.log(history);
+};
+
+/* --UPDATE NUMBER OF MOVE-- */
+const updateMoves = () => {
+  move = history.length - 1;
+  console.log(`number of move: ${move}`);
+};
+
+/* --CHECK FOR WINNER-- */
+const checkwin = (currentClass) => {
+  let x = document.querySelectorAll(".cell");
+  return winningCombinations.some((combination) => {
+    return combination.every((index) => {
+      return x[index].classList.contains(currentClass);
+    });
+  });
+};
+
+/* --CHECK FOR DRAW START-- */
+const isDraw = () => {
+  return [...cellElements].every((cell) => {
+    return cell.classList.contains("x") || cell.classList.contains("O");
+  });
+};
+/* --CHECK FOR DRAW END-- */
+
+/* --RESTART BUTTON START-- */
+const restartFunction = () => {
+  location.reload();
+};
+reset.addEventListener("click", restartFunction);
+reset2.addEventListener("click", restartFunction);
+/* --RESTART BUTTON END-- */
+
+/* --CHECK MOVES BUTTON START-- */
+checkMoves.addEventListener("click", () => {
+  winningMessage.classList.remove("show");
+  navigation.classList.add("show");
+  nextMove.disabled = true;
+  previousMove.disabled = false;
+  for (cell of cellElements) {
+    cell.removeEventListener("click", handleClick);
+  }
+
+  if (nextMove.disabled === true) {
+    nextMove.style.cursor = "not-allowed";
+  }
+});
+/* --CHECK MOVES BUTTON END-- */
+
+/* --PREVIOUS MOVE-- */
+previousMove.addEventListener("click", () => {
+  nextMove.disabled = false;
+  nextMove.style.cursor = "pointer";
+  move = move - 1;
+  updateBoardOnClick();
+  console.log(history[move]);
+  console.log(`number of move: ${move + 1}`);
+  if (move < 1) {
+    previousMove.disabled = true;
+    previousMove.style.cursor = "not-allowed";
+  }
+});
+/* --PREVIOUS MOVE END-- */
+
+/* --NEXT MOVE-- */
+nextMove.addEventListener("click", () => {
+  previousMove.disabled = false;
+  previousMove.style.cursor = "pointer";
+  move = move + 1;
+  updateBoardOnClick();
+  
+  console.log(`number of move: ${move + 1}`);
+  if (move === history.length - 1) {
+    nextMove.disabled = true;
+    nextMove.style.cursor = "not-allowed";
+  }
+});
+
+
+/* --NEXT MOVE END-- */
+
+/* --updateBoard function for previous & next move buttons-- */
+const updateBoardOnClick = () => {
+  board.innerHTML = "";
+  console.log(history[move]);
+  for (let i = 0; i < history[move].length; i++) {
+    for (let j = 0; j < history[move][i].length; j++) {
+      console.log(history[move][i][j]);
+      let div = document.createElement("div");
+      div.classList.add("cell");
+
+      if (history[move][i][j] === "x") {
+        div.classList.add("x");
+      } else if (history[move][i][j] === "o") {
+        div.classList.add("O");
+      }
+      board.append(div);
+    }
+  }
+};
