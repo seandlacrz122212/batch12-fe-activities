@@ -144,7 +144,7 @@ header .navbar a:hover{
   gap:1.5rem;
   min-height: 100vh;
   align-items: center;
-  background:url(../images/home-bg.jpg) no-repeat;
+  background:url('https://scontent.fmnl17-2.fna.fbcdn.net/v/t1.15752-9/270566859_809174353809693_5274420034251955134_n.png?_nc_cat=102&ccb=1-5&_nc_sid=ae9488&_nc_eui2=AeGxr4f9o74jsTPDWH2yaENxAQAD3B1ml38BAAPcHWaXf8bitQoFNHF3_Avf1kaqvnIYHTDXbeX5Rn8me3ncHQI0&_nc_ohc=lL8HX9bM-xUAX-nXfC8&_nc_ht=scontent.fmnl17-2.fna&oh=03_AVKuOG5C_EvIAn2TvlFozCsf8Rb_K0PwlYu8gFYol0NjuA&oe=622F68FD') no-repeat;
   background-size: cover;
   background-position: center;
 }
@@ -160,7 +160,7 @@ header .navbar a:hover{
 
 .home .image img{
   width:100%;
-  padding:1rem;
+  padding:6rem;
   animation:float 3s linear infinite;
 }
 
